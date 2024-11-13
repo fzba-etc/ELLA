@@ -1,4 +1,4 @@
-// node --version # Should be >= 18
+// node --version #Note: Should be >= 18
 // npm install @google/generative-ai express
 
 const express = require('express');
