@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ella</title>
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  #chat-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Adjust width as needed */
+    max-width: 90%; /* For responsiveness */
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #chat-history {
+    height: 300px;
+    overflow-y: auto; /* Improved scrolling */
+    border: 1px solid #ccc; /* Visual separation */
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .message { /* Common styles for both user and bot messages */
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    max-width: 80%; /* Prevent overly wide messages */
+    word-wrap: break-word; /* Handle long words/links */
+  }
+
+  .user-message {
+    text-align: right;
+    background-color: #f3fcfd; /* Light blue */
+    margin-left: auto; /* Align to right */
+  }
+
+  .bot-message {
+    text-align: left;
+    background-color: #ffe0e9; /* Light green */
+
+  }  
+  
+  #chat-form {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #ff69b4; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #loader {
+    display: none;
+    position: fixed; /* Fixed position */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure loader is on top */
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+</style>
+</head>
+<body>
+  <div id="chat-container">
+    <h1>ELLA</h1>
+    <div id="chat-history"></div>
+    <form id="chat-form">
+      <input type="text" id="user-input" placeholder="Enter your message">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <div id="loader">
+    <img src="loader.gif" width="50px" alt="Loading..."> </div>
+
+  <script>
+    const chatHistory = document.getElementById('chat-history');
+    const userInput = document.getElementById('user-input');
+    const form = document.getElementById('chat-form');
+    const loader = document.getElementById('loader'); // Get loader element
+
+    async function sendMessage(userMessage) {
+
+          userInput.value = ''; // Clear input field
+          displayMessage(userMessage, 'user');
+          try {
+            loader.style.display = 'block'; // Show loader
+            const response = await fetch('/chat', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ userInput: userMessage }),
+            });
+
+            const data = await response.json();
+            const botMessage = data.response;
+            displayMessage(botMessage, 'bot');
+
+            chatHistory.scrollTop = chatHistory.scrollHeight; // Scroll to bottom
+          } catch (error) {
+            console.error('Error:', error);
+            displayMessage('An error occurred. Please try again.', 'bot');
+          } finally {
+            loader.style.display = 'none'; // Hide loader
+          }
+        }
+
+
+        function displayMessage(message, sender) {
+          const messageDiv = document.createElement('div');
+          messageDiv.classList.add('message', `${sender}-message`);
+          messageDiv.innerHTML = message; // Use innerHTML for markdown support
+          chatHistory.appendChild(messageDiv);
+        }
+
+
+
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const userMessage = userInput.value;
+          if (userMessage.trim() !== "") { // Send only if not empty
+            sendMessage(userMessage);
+          }
+        });
+  </script>
+</body>
+</html>
+
