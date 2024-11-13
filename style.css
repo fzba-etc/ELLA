@@ -1,0 +1,212 @@
+/* General Body Styling */
+body {
+    background-color: #fff8f9; /* Light pink background */
+    color: #4a4a4a; /* Dark gray text color */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Container for central alignment */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Header Styling */
+  .header {
+    background-color: #ffe0e9; /* Soft pink for header background */
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ff69b4; /* Bright pink for the logo */
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-left: 20px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #4a4a4a; /* Dark gray for links */
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background-color: #ffd1dc; /* Light pink on hover */
+    color: #4a4a4a;
+  }
+  
+  /* Banner Styling */
+  .banner {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #ffe0e9, #ffd1dc); /* Light gradient */
+    border-radius: 10px;
+    color: #4a4a4a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px 0;
+  }
+  
+  .banner h1 {
+    font-size: 2.8em;
+    color: #ff69b4;
+    margin-bottom: 15px;
+  }
+  
+  .banner p {
+    color: #4a4a4a;
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+  
+  .banner button {
+    background-color: #ff69b4;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .banner button:hover {
+    background-color: #e8569e;
+  }
+  
+  /* About Chatbot Section */
+  .about-chatbot {
+    background-color: #fff8f9; /* Light pink background */
+    color: #4a4a4a;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .about-content {
+    max-width: 800px; /* Center content within this width */
+    margin: 0 auto;
+  }
+  
+  .about-chatbot h2 {
+    color: #ff69b4;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .about-chatbot p, .about-chatbot ul li {
+    color: #4a4a4a; /* Dark gray text */
+    font-size: 1.1em;
+  }
+  
+  .about-chatbot ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .about-chatbot ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ffe0e9; /* Subtle light pink divider */
+  }
+  
+  .about-chatbot button {
+    background-color: #ff69b4;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .about-chatbot button:hover {
+    background-color: #e8569e;
+  }
+  
+  /* Blog, Mentorship, and Events Layouts */
+  .section {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .section h2 {
+    font-size: 2.2em;
+    color: #ff69b4;
+    margin-bottom: 20px;
+  }
+  
+  .section p {
+    color: #555;
+    font-size: 1em;
+    max-width: 700px;
+    margin: 0 auto 30px;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .blog-post, .mentor-profile, .event {
+    background-color: #ffffff; /* White for content contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .blog-post:hover, .mentor-profile:hover, .event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .blog-post h3, .mentor-profile h3, .event h3 {
+    font-size: 1.4em;
+    color: #ff69b4;
+  }
+  
+  .blog-post p, .mentor-profile p, .event p, .section small {
+    color: #4a4a4a; /* Dark gray for general text */
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffe0e9; /* Light pink footer */
+    color: #555;
+    font-size: 0.9em;
+  }
+  
+  footer a {
+    color: #ff69b4;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
